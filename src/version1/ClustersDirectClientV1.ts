@@ -5,7 +5,6 @@ import { DataPage } from 'pip-services3-commons-nodex';
 import { DirectClient } from 'pip-services3-rpc-nodex';
 
 import { IClustersClientV1 } from './IClustersClientV1';
-//import { IClustersController } from 'service-clusters-node';
 import { ClusterV1 } from '../data/version1/ClusterV1';
 
 export class ClustersDirectClientV1 extends DirectClient<any> implements IClustersClientV1 {
@@ -19,24 +18,24 @@ export class ClustersDirectClientV1 extends DirectClient<any> implements ICluste
         let timing = this.instrument(correlationId, 'clusters.get_clusters');
         
         try {
-            return await this._controller.getClusters(correlationId, filter, paging);
+            let res = await this._controller.getClusters(correlationId, filter, paging);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
     public async getClusterById(correlationId: string, clusterId: string): Promise<ClusterV1> {
         let timing = this.instrument(correlationId, 'clusters.get_cluster_by_id');
         try {
-            return await this._controller.getClusterById(correlationId, clusterId);
+            let res = await this._controller.getClusterById(correlationId, clusterId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -51,26 +50,26 @@ export class ClustersDirectClientV1 extends DirectClient<any> implements ICluste
 
         try {
             let page = await this.getClusters(correlationId, filter, null);
+            timing.endTiming();
             if (page && page.data && page.data.length > 0)
                 return page.data[0];
             else return null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
     public async createCluster(correlationId: string, cluster: ClusterV1): Promise<ClusterV1> {
         let timing = this.instrument(correlationId, 'clusters.create_cluster');
+
         try {
-            return await this._controller.createCluster(correlationId, cluster);
+            let res = await this._controller.createCluster(correlationId, cluster);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -78,12 +77,12 @@ export class ClustersDirectClientV1 extends DirectClient<any> implements ICluste
         let timing = this.instrument(correlationId, 'clusters.update_cluster');
         
         try {
-            return await this._controller.updateCluster(correlationId, cluster);
+            let res = await this._controller.updateCluster(correlationId, cluster);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -91,12 +90,12 @@ export class ClustersDirectClientV1 extends DirectClient<any> implements ICluste
         let timing = this.instrument(correlationId, 'clusters.delete_cluster_by_id');
 
         try {
-            return await this._controller.deleteClusterById(correlationId, clusterId);
+            let res = await this._controller.deleteClusterById(correlationId, clusterId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -104,12 +103,12 @@ export class ClustersDirectClientV1 extends DirectClient<any> implements ICluste
         let timing = this.instrument(correlationId, 'clusters.add_tenant');
         
         try {
-            return await this._controller.addTenant(correlationId, tenantId);
+            let res = await this._controller.addTenant(correlationId, tenantId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -117,13 +116,12 @@ export class ClustersDirectClientV1 extends DirectClient<any> implements ICluste
         let timing = this.instrument(correlationId, 'clusters.remove_tenant');
         
         try {
-            return await this._controller.removeTenant(correlationId, tenantId);
+            let res = await this._controller.removeTenant(correlationId, tenantId);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
-    
 }

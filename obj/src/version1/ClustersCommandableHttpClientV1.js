@@ -21,142 +21,62 @@ class ClustersCommandableHttpClientV1 extends pip_services3_rpc_nodex_1.Commanda
     }
     getClusters(correlationId, filter, paging) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.get_clusters');
-            try {
-                return yield this.callCommand('get_clusters', correlationId, {
-                    filter: filter,
-                    paging: paging
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('get_clusters', correlationId, {
+                filter: filter,
+                paging: paging
+            });
         });
     }
     getClusterById(correlationId, clusterId) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.get_cluster_by_id');
-            try {
-                return yield this.callCommand('get_cluster_by_id', correlationId, {
-                    cluster_id: clusterId
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('get_cluster_by_id', correlationId, {
+                cluster_id: clusterId
+            });
         });
     }
     getClusterByTenant(correlationId, tenantId) {
         return __awaiter(this, void 0, void 0, function* () {
             let filter = pip_services3_commons_nodex_2.FilterParams.fromTuples('active', true, 'tenant_id', tenantId);
-            let timing = this.instrument(correlationId, 'clusters.get_cluster_by_tenant');
-            try {
-                let page = yield this.getClusters(correlationId, filter, null);
-                if (page && page.data && page.data.length > 0)
-                    return page.data[0];
-                else
-                    return null;
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            let page = yield this.getClusters(correlationId, filter, null);
+            if (page && page.data && page.data.length > 0)
+                return page.data[0];
+            else
+                return null;
         });
     }
     createCluster(correlationId, cluster) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.create_cluster');
-            try {
-                return yield this.callCommand('create_cluster', correlationId, {
-                    cluster: cluster
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('create_cluster', correlationId, {
+                cluster: cluster
+            });
         });
     }
     updateCluster(correlationId, cluster) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.update_cluster');
-            try {
-                return yield this.callCommand('update_cluster', correlationId, {
-                    cluster: cluster
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('update_cluster', correlationId, {
+                cluster: cluster
+            });
         });
     }
     deleteClusterById(correlationId, clusterId) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.delete_cluster_by_id');
-            try {
-                return yield this.callCommand('delete_cluster_by_id', correlationId, {
-                    cluster_id: clusterId
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('delete_cluster_by_id', correlationId, {
+                cluster_id: clusterId
+            });
         });
     }
     addTenant(correlationId, tenantId) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.add_tenant');
-            try {
-                return yield this.callCommand('add_tenant', correlationId, {
-                    tenant_id: tenantId
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('add_tenant', correlationId, {
+                tenant_id: tenantId
+            });
         });
     }
     removeTenant(correlationId, tenantId) {
         return __awaiter(this, void 0, void 0, function* () {
-            let timing = this.instrument(correlationId, 'clusters.remove_tenant');
-            try {
-                return yield this.callCommand('remove_tenant', correlationId, {
-                    tenant_id: tenantId
-                });
-            }
-            catch (err) {
-                timing.endFailure(err);
-                throw err;
-            }
-            finally {
-                timing.endTiming();
-            }
+            return yield this.callCommand('remove_tenant', correlationId, {
+                tenant_id: tenantId
+            });
         });
     }
 }

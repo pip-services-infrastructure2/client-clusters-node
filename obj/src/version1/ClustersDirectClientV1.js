@@ -22,14 +22,13 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.get_clusters');
             try {
-                return yield this._controller.getClusters(correlationId, filter, paging);
+                let res = yield this._controller.getClusters(correlationId, filter, paging);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -37,14 +36,13 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.get_cluster_by_id');
             try {
-                return yield this._controller.getClusterById(correlationId, clusterId);
+                let res = yield this._controller.getClusterById(correlationId, clusterId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -54,6 +52,7 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
             let timing = this.instrument(correlationId, 'clusters.get_cluster_by_tenant');
             try {
                 let page = yield this.getClusters(correlationId, filter, null);
+                timing.endTiming();
                 if (page && page.data && page.data.length > 0)
                     return page.data[0];
                 else
@@ -63,23 +62,19 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
                 timing.endFailure(err);
                 throw err;
             }
-            finally {
-                timing.endTiming();
-            }
         });
     }
     createCluster(correlationId, cluster) {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.create_cluster');
             try {
-                return yield this._controller.createCluster(correlationId, cluster);
+                let res = yield this._controller.createCluster(correlationId, cluster);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -87,14 +82,13 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.update_cluster');
             try {
-                return yield this._controller.updateCluster(correlationId, cluster);
+                let res = yield this._controller.updateCluster(correlationId, cluster);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -102,14 +96,13 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.delete_cluster_by_id');
             try {
-                return yield this._controller.deleteClusterById(correlationId, clusterId);
+                let res = yield this._controller.deleteClusterById(correlationId, clusterId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -117,14 +110,13 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.add_tenant');
             try {
-                return yield this._controller.addTenant(correlationId, tenantId);
+                let res = yield this._controller.addTenant(correlationId, tenantId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -132,14 +124,13 @@ class ClustersDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'clusters.remove_tenant');
             try {
-                return yield this._controller.removeTenant(correlationId, tenantId);
+                let res = yield this._controller.removeTenant(correlationId, tenantId);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
