@@ -6,7 +6,7 @@ import { IdGenerator } from 'pip-services3-commons-nodex';
 import { IClustersClientV1 } from './IClustersClientV1';
 import { ClusterV1 } from '../data/version1/ClusterV1';
 
-export class ClustersMemoryClientV1 implements IClustersClientV1 {
+export class ClustersMockClientV1 implements IClustersClientV1 {
     private _clusters: ClusterV1[] = [];
             
     private matchString(value: string, search: string): boolean {

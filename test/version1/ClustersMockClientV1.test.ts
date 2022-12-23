@@ -1,12 +1,12 @@
-import { ClustersMemoryClientV1 } from '../../src/version1/ClustersMemoryClientV1';
+import { ClustersMockClientV1 } from '../../src/version1/ClustersMockClientV1';
 import { ClustersClientFixtureV1 } from './ClustersClientFixtureV1';
 
-suite('ClustersMemoryClientV1', ()=> {
-    let client: ClustersMemoryClientV1;
+suite('ClustersMockClientV1', ()=> {
+    let client: ClustersMockClientV1;
     let fixture: ClustersClientFixtureV1;
 
     setup(() => {
-        client = new ClustersMemoryClientV1();
+        client = new ClustersMockClientV1();
 
         fixture = new ClustersClientFixtureV1(client);
     });

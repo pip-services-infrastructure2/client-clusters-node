@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ClustersProxyHttpClientV1 = exports.ClustersCommandableLambdaClientV1 = exports.ClustersCommandableHttpClientV1 = exports.ClustersDirectClientV1 = exports.ClustersMemoryClientV1 = exports.ClustersNullClientV1 = void 0;
+exports.ClustersProxyHttpClientV1 = exports.ClustersCommandableLambdaClientV1 = exports.ClustersCommandableHttpClientV1 = exports.ClustersDirectClientV1 = exports.ClustersMockClientV1 = exports.ClustersNullClientV1 = void 0;
 var ClustersNullClientV1_1 = require("./ClustersNullClientV1");
 Object.defineProperty(exports, "ClustersNullClientV1", { enumerable: true, get: function () { return ClustersNullClientV1_1.ClustersNullClientV1; } });
-var ClustersMemoryClientV1_1 = require("./ClustersMemoryClientV1");
-Object.defineProperty(exports, "ClustersMemoryClientV1", { enumerable: true, get: function () { return ClustersMemoryClientV1_1.ClustersMemoryClientV1; } });
+var ClustersMockClientV1_1 = require("./ClustersMockClientV1");
+Object.defineProperty(exports, "ClustersMockClientV1", { enumerable: true, get: function () { return ClustersMockClientV1_1.ClustersMockClientV1; } });
 var ClustersDirectClientV1_1 = require("./ClustersDirectClientV1");
 Object.defineProperty(exports, "ClustersDirectClientV1", { enumerable: true, get: function () { return ClustersDirectClientV1_1.ClustersDirectClientV1; } });
 var ClustersCommandableHttpClientV1_1 = require("./ClustersCommandableHttpClientV1");

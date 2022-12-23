@@ -1,6 +1,11 @@
 # Clusters Microservice Client for Node.js ChangeLog
 
-## <a name="1.0.0"></a> 1.0.0 (2017-05-11)
+## <a name="1.1.1"></a> 1.1.1 (2017-12-23)
+
+### Breaking Changes
+* Changed components naming and descriptors
+
+## <a name="1.0.0"></a> 1.0.0 (2022-05-11)
 
 ### Features
 * **rest** HTTP/REST client
